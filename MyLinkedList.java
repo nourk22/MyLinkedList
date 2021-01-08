@@ -37,7 +37,22 @@ public class MyLinkedList{
     return currVal;
   }
 
-  //public boolean add(String value);
+  public boolean add(String value){
+    Node added = new Node(value);
+    added.setPrev(end);
+
+    Node currNode = start;
+    for (int i=0; i<size-1; i++){
+      currNode = currNode.getNext();
+    }
+    currNode.setNext(added);
+
+    end = added;
+    size++;
+
+    return true;
+
+  }
   //public boolean add(int index, String value);
 
   //public String toString();
