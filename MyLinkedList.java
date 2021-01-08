@@ -5,10 +5,10 @@ public class MyLinkedList{
   private Node start,end;
 
   //constructor
-  public MyLinkedList(int length, Node first, Node last){
-    size = length;
-    start = first;
-    end = last;
+  public MyLinkedList(){
+    size = 0;
+    start = null;
+    end = null;
   }
 
   //methods
