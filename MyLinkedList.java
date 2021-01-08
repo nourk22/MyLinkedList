@@ -69,9 +69,29 @@ public class MyLinkedList{
       added.setPrev(currNode);
 
       size++;
-    }  
+    }
   }
 
-  //public String toString();
-  //Any helper method that returns a Node object MUST BE PRIVATE!
+  public String toString(){
+    Node currNode = start;
+    String list = "[";
+
+    if (size==1){
+      list+=currNode.getData();
+    }else{
+      for (int i=0; i<size; i++){
+        list+=currNode.getData()+", ";
+        currNode = currNode.getNext();
+      }
+    }
+
+    if (size>1){
+      list+=currNode.getData();
+    }
+
+    list+="]";
+
+    return list;
+  }
+
 }
