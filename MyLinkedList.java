@@ -70,21 +70,35 @@ public class MyLinkedList{
   }
 
   public void add(int index, String value){
-    if (index>=size || index<0){
+    if (index>size || index<0){
       throw new IndexOutOfBoundsException();
     }
 
     if (index == size){
       add(value);
+    }else if(index == 0){
+      Node added = new Node(value);
+
+      added.setNext(start);
+      start.setPrev(added);
+      start = added;
+      size++;
+
     }else{
       Node added = new Node(value);
 
-      Node currNode = start;
+      Node node1 = start; //node right before
+      Node node2 = start; //node right after
       for (int i=0; i<index-1; i++){
-        currNode = currNode.getNext();
+        node1 = node1.getNext();
       }
-      currNode.setNext(added);
-      added.setPrev(currNode);
+      for (int i=0; i<index; i++){
+        node2 = node2.getNext();
+      }
+      node1.setNext(added);
+      added.setPrev(node1);
+      added.setNext(node2);
+      node2.setPrev(added);
 
       size++;
     }
@@ -98,7 +112,7 @@ public class MyLinkedList{
       list+=currNode.getData();
     }else{
       for (int i=0; i<size-1; i++){
-        list+=currNode.getData()+", ";
+        list+=currNode.getData() + ", ";
         currNode = currNode.getNext();
       }
     }
@@ -113,25 +127,25 @@ public class MyLinkedList{
   }
 
   public static void main(String[] args) {
+/*
+		MyLinkedList list = new MyLinkedList();
 
-		MyLinkedList ll = new MyLinkedList();
+		System.out.println(list.size());
 
-		System.out.println(ll.size());
+		list.add("a");
+		list.add("b");
+		list.add("c");
+		System.out.println(list);
 
-		ll.add("a");
-		ll.add("b");
-		ll.add("c");
-		System.out.println(ll);
-
-		ll.add(1, "d");
-		System.out.println(ll);
-		ll.add(0, "e");
-		System.out.println(ll);
-		ll.add(5, "f");
-		System.out.println(ll);
-		System.out.println(ll.set(3, "g"));
-		System.out.println(ll);
-
+		list.add(1, "1");
+		System.out.println(list);
+		list.add(0, "0");
+		System.out.println(list);
+		list.add(5, "5");
+		System.out.println(list);
+		System.out.println(list.set(3, "3"));
+		System.out.println(list);
+*/
 
 	}
 
