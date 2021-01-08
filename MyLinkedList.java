@@ -25,7 +25,17 @@ public class MyLinkedList{
     return curr.getData();
   }
 
-  //public String set(int index, String value);
+  public String set(int index, String value){
+    String currVal = get(index);
+    Node currNode = start;
+
+    for (int i=0; i<index; i++){
+      currNode = currNode.getNext();
+    }
+    currNode.setData(value);
+
+    return currVal;
+  }
 
   //public boolean add(String value);
   //public boolean add(int index, String value);
