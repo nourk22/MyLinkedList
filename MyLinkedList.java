@@ -26,6 +26,10 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
+    if (index>=size){
+      throw new IndexOutOfBoundsException();
+    }
+
     String currVal = get(index);
     Node currNode = start;
 
@@ -55,6 +59,9 @@ public class MyLinkedList{
   }
 
   public void add(int index, String value){
+    if (index>=size){
+      throw new IndexOutOfBoundsException();
+    }
 
     if (index == size){
       add (value);
