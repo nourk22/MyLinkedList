@@ -52,8 +52,6 @@ public class MyLinkedList{
     if (size==0){
       start = added;
       end = added;
-      added.setPrev(null);
-      added.setNext(null);
     }else{
       added.setPrev(end);
 
