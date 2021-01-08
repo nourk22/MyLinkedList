@@ -18,6 +18,10 @@ public class MyLinkedList{
 
   //get and set
   public String get(int index){
+    if (index>=size || index<0){
+      throw new IndexOutOfBoundsException();
+    }
+
     Node curr = start;
     for (int i=0; i<index; i++){
       curr = curr.getNext();
