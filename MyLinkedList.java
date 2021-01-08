@@ -104,6 +104,35 @@ public class MyLinkedList{
     }
   }
 
+  //remove
+  public String remove(int index){
+
+    if (index>=size || index<0){
+      throw new IndexOutOfBoundsException();
+    }
+
+    String prevVal = start.getData();
+
+    //removing size 1 list
+    if (size==1){
+      start = null;
+      end = null;
+      size = 0;
+    }
+
+    //removing the head
+
+
+    //removing the tail
+
+
+
+    //removing from middle
+
+    return prevVal;
+  }
+
+
   public String toString(){
     Node currNode = start;
     String list = "[";
