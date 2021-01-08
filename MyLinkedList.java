@@ -37,6 +37,7 @@ public class MyLinkedList{
     return currVal;
   }
 
+  //add methods
   public boolean add(String value){
     Node added = new Node(value);
     added.setPrev(end);
@@ -51,9 +52,25 @@ public class MyLinkedList{
     size++;
 
     return true;
-
   }
-  //public boolean add(int index, String value);
+
+  public void add(int index, String value){
+
+    if (index == size){
+      add (value);
+    }else{
+      Node added = new Node(value);
+
+      Node currNode = start;
+      for (int i=0; i<index-1; i++){
+        currNode = currNode.getNext();
+      }
+      currNode.setNext(added);
+      added.setPrev(currNode);
+
+      size++;
+    }  
+  }
 
   //public String toString();
   //Any helper method that returns a Node object MUST BE PRIVATE!
