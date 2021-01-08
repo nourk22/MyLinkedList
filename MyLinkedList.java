@@ -126,6 +126,28 @@ public class MyLinkedList{
     return list;
   }
 
+  public String toStringReversed(){
+    Node currNode = end;
+    String list = "[";
+
+    if (size==1){
+      list+=currNode.getData();
+    }else{
+      for (int i=0; i<size-1; i++){
+        list+=currNode.getData() + ", ";
+        currNode = currNode.getPrev();
+      }
+    }
+
+    if (size>1){
+      list+=currNode.getData();
+    }
+
+    list+="]";
+
+    return list;
+  }
+
   public static void main(String[] args) {
 /*
 		MyLinkedList list = new MyLinkedList();
