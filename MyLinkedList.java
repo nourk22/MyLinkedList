@@ -122,7 +122,7 @@ public class MyLinkedList{
     }
 
     //removing the head
-    if (index==0){
+    if (size > 1 && index==0){
       curr = start.getNext();
       curr.setPrev(null);
       start=curr;
@@ -131,7 +131,7 @@ public class MyLinkedList{
     }
 
     //removing the tail
-    if (index==size-1){
+    if (size > 1 && index==size-1){
       prevVal=end.getData();
 
       curr = end.getPrev();
@@ -142,13 +142,21 @@ public class MyLinkedList{
     }
 
     //removing from middle
-    if (index>0 && index<size-1){
+    if (size > 1 && index>0 && index<size-1){
       curr=start;
+
       for (int i=0; i<index; i++){
         curr=curr.getNext();
       }
-      curr.getPrev().setNext(curr.getNext());
-      curr.getNext().setPrev(curr);
+
+      prevVal = curr.getData();
+
+      Node previous = curr.getPrev();
+      Node next = curr.getNext();
+      previous.setNext(next);
+      next.setPrev(previous);
+
+      size--;
     }
 
     return prevVal;
@@ -201,11 +209,14 @@ public class MyLinkedList{
 
   public static void main(String[] args) {
 
-/*
+
 		MyLinkedList list = new MyLinkedList();
 
-		System.out.println(list.size());
+    System.out.println();
+		System.out.println("Initial Size: " + list.size());
+    System.out.println();
 
+    System.out.println("Testing Adds:");
 		list.add("a");
 		list.add("b");
 		list.add("c");
@@ -217,9 +228,31 @@ public class MyLinkedList{
 		System.out.println(list);
 		list.add(5, "5");
 		System.out.println(list);
-		System.out.println(list.set(3, "3"));
+    System.out.println();
+		System.out.println("Set: " + list.set(3, "3"));
 		System.out.println(list);
-*/
+    System.out.println(list.toStringReversed());
+
+    System.out.println();
+    System.out.println("Testing Remove:");
+    //list.remove(-1);
+    //list.remove(6);
+    //list.remove(7);
+    System.out.println("Index 5 (tail): " + list.remove(5));
+    System.out.println(list);
+    System.out.println("Index 0 (head): " + list.remove(0));
+    System.out.println(list);
+    System.out.println("Index 2 (middle): " + list.remove(2));
+    System.out.println(list);
+    System.out.println("Index 1 (middle): " + list.remove(1));
+    System.out.println(list);
+    System.out.println("Index 5 (tail): " + list.remove(1));
+    System.out.println(list);
+    System.out.println("Index 0 (size 1): " + list.remove(0));
+    System.out.println(list);
+  //  System.out.println("Index 0 (empty list): " + list.remove(0));
+  //  System.out.println(list);
+
 
 	}
 
