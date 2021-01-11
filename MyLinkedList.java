@@ -134,10 +134,7 @@ public class MyLinkedList{
     if (index==size-1){
       prevVal=end.getData();
 
-      curr = start;
-      for (int i = 0; i<index-1; i++){
-        curr = curr.getNext();
-      }
+      curr = end.getPrev();
       curr.setNext(null);
       end = curr;
 
@@ -145,6 +142,14 @@ public class MyLinkedList{
     }
 
     //removing from middle
+    if (index>0 && index<size-1){
+      curr=start;
+      for (int i=0; i<index; i++){
+        curr=curr.getNext();
+      }
+      curr.getPrev().setNext(curr.getNext());
+      curr.getNext().setPrev(curr);
+    }
 
     return prevVal;
   }
