@@ -106,6 +106,7 @@ public class MyLinkedList{
 
   //remove
   public String remove(int index){
+    Node curr;
 
     if (index>=size || index<0){
       throw new IndexOutOfBoundsException();
@@ -121,11 +122,27 @@ public class MyLinkedList{
     }
 
     //removing the head
+    if (index==0){
+      curr = start.getNext();
+      curr.setPrev(null);
+      start=curr;
 
+      size --;
+    }
 
     //removing the tail
+    if (index==size-1){
+      prevVal=end.getData();
 
+      curr = start;
+      for (int i = 0; i<index-1; i++){
+        curr = curr.getNext();
+      }
+      curr.setNext(null);
+      end = curr;
 
+      size --;
+    }
 
     //removing from middle
 
