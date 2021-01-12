@@ -170,6 +170,7 @@ public class MyLinkedList{
       other.start = null;
       other.end = null;
       size = other.size;
+      other.size = 0;
     }else if (size > 0 && other.size > 0){
       end.setNext(other.start);
       other.start.setPrev(end);
@@ -231,29 +232,86 @@ public class MyLinkedList{
 
   public static void main(String[] args) {
 
-
-		MyLinkedList list = new MyLinkedList();
+/*
+    MyLinkedList list = new MyLinkedList();
 
     System.out.println();
 		System.out.println("Initial Size: " + list.size());
     System.out.println();
 
-    System.out.println("Testing Adds:");
-		list.add("a");
-		list.add("b");
-		list.add("c");
+    System.out.println("Testing Adds");
+		list.add("1");
+		list.add("2");
+		list.add("3");
 		System.out.println(list);
 
-		list.add(1, "1");
+		list.add(1, "1.5");
 		System.out.println(list);
 		list.add(0, "0");
 		System.out.println(list);
 		list.add(5, "5");
 		System.out.println(list);
     System.out.println();
-		System.out.println("Set: " + list.set(3, "3"));
+		System.out.println("Set: " + list.set(3, "c"));
 		System.out.println(list);
+    //System.out.println(list.toStringReversed());
+
+    MyLinkedList list2 = new MyLinkedList();
+
+    list2.add("A");
+    list2.add("B");
+    list2.add("C");
+    list2.add("D");
+    list2.add("E");
+    list2.add("F");
+
+    System.out.println();
+    System.out.println("NEW LIST");
+    System.out.println(list2);
+
+    System.out.println();
+    System.out.println("Testing Extend");
+    list.extend(list2);
+    System.out.println(list);
+    System.out.println(list2);
     System.out.println(list.toStringReversed());
+    System.out.println(list2.toStringReversed());
+
+    System.out.println();
+    System.out.println("Testing Extend Part 2");
+
+    MyLinkedList empty1 = new MyLinkedList();
+    MyLinkedList empty2 = new MyLinkedList();
+    MyLinkedList size1 = new MyLinkedList();
+    size1.add("hi");
+    MyLinkedList size1b = new MyLinkedList();
+    size1b.add("hello");
+
+    empty1.extend(empty2);
+    System.out.println(empty1);
+    System.out.println(empty2);
+
+    empty1.extend(list);
+    System.out.println(empty1);
+    System.out.println(list);
+
+    empty1.extend(empty2);
+    System.out.println(empty1);
+    System.out.println(empty2);
+
+    System.out.println();
+    System.out.println("Testing Extend Part 3");
+    empty1.extend(size1);
+    System.out.println(empty1);
+    System.out.println(size1);
+
+    size1b.extend(empty2);
+    System.out.println(size1b);
+    System.out.println(empty2);
+
+    size1b.extend(empty1);
+    System.out.println(size1b);
+    System.out.println(empty1);
 
     System.out.println();
     System.out.println("Testing Remove:");
@@ -272,9 +330,9 @@ public class MyLinkedList{
     System.out.println(list);
     System.out.println("Index 0 (size 1): " + list.remove(0));
     System.out.println(list);
-  //  System.out.println("Index 0 (empty list): " + list.remove(0));
-  //  System.out.println(list);
-
+    //System.out.println("Index 0 (empty list): " + list.remove(0));
+    //System.out.println(list);
+*/
 
 	}
 
