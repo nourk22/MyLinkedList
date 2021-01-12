@@ -162,6 +162,28 @@ public class MyLinkedList{
     return prevVal;
   }
 
+  //extend
+  public void extend(MyLinkedList other){
+    if (size == 0 && other.size!=0){
+      start = other.start;
+      end = other.end;
+      other.start = null;
+      other.end = null;
+      size = other.size;
+    }else if (size > 0 && other.size > 0){
+      end.setNext(other.start);
+      other.start.setPrev(end);
+      end = other.end;
+      other.end = null;
+      other.start = null;
+      size = size + other.size;
+      other.size = 0;
+    }
+    //other.size==0 —> do nothing
+  }
+
+
+  //toStrings
 
   public String toString(){
     Node currNode = start;
